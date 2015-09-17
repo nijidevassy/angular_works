@@ -1,0 +1,241 @@
+body
+{
+    background-image:url(../assets/back.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#head
+{
+    width:100%;
+    height:200px;
+    background-image: url(../assets/head.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#head img
+{
+    display: inline-block;
+    top:0;
+    left:0;
+    float:left;
+    padding: 20px;
+    width: 120px;
+
+}
+
+#head h1
+{
+    display:inline-block;  
+    vertical-align: baseline;
+    color: coral;
+    vertical-align: middle;
+    float: right;
+    font-size: 70px;
+    
+}
+
+#container
+{
+    margin-left: 50px;
+    margin-top: 20px;
+    display: inline-block;
+    padding: 30px;
+    width:40%;
+    background-image: url(../assets/con.jpg);
+    align-items: center;
+
+}
+
+.hover
+{
+    background-color: crimson;
+}
+
+#h
+{
+    font-family: sans-serif;
+    text-decoration: underline;
+    text-decoration-color: aliceblue;
+}
+
+#cancel , #add
+{
+    height: 80px;;
+    width:200px;
+    border-radius: 5px;
+    float:right;
+    background-color: white;
+    color: cornflowerblue;
+    
+}
+
+#add
+{
+    background-image: url(../assets/addcart1.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    text-align: right;
+    font-size: 20;
+
+}
+
+#cancel
+{
+    background-image: url(../assets/addcart.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    text-align: right;
+    font-size: 20;
+}
+
+#add:hover, #cancel:hover
+{
+    opacity:0.5;
+}
+#right_div
+{
+    display: inline-block;
+    float: right;
+    width: 25%;
+    text-align: center;
+    color: aliceblue;
+    background-image: url(../assets/right.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 25px;
+    /*margin-left: 30px;*/
+    margin-right: 45px;
+    padding:10px;
+}
+
+img
+{
+    height: 150;
+    width: 150;
+    float:left;
+    padding:15px;
+}
+
+#container img:hover
+{
+    opacity: 0.5;
+}
+
+    
+#shop
+{  
+    
+    float: right;
+    height: 20px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+@media screen and (min-width:800px)
+    {
+        #shop
+        {
+            margin-right: 100px;
+        }
+    }
+@media screen and (min-width:500px) and (max-width: 800px)
+    {
+        
+#head h1
+        {
+            display: inline-block;
+            font-size: 40px;
+            padding-right: 80px;
+        }
+
+#container
+        {
+            margin-left: 10px;
+            width: 40%;
+            align-items: center;
+        }
+        
+#right_div
+            {
+                width:35%;
+                font-size: 12px;
+                margin-right: 10px;
+            }
+                
+.img
+        {
+            height: 80px;
+            width: 80px;
+            padding: 10px;
+        }
+        
+#cancel, #add
+        {
+            width: 25%;
+            font-size: 15;
+            text-align: center;
+        }
+
+#head
+        {
+            height: 120px;
+        }
+
+#head img
+        {
+            display: inline-block;
+            width: 80px;
+        }
+    }
+@media screen and (max-width:500px)
+    {
+        #head
+        {
+            height: 80px;
+        }
+        #head h1
+        {
+            top:5px;
+            font-size: 25px;
+        }
+        #head img
+        {
+            width: 50px;
+            padding: 7px;
+        }
+        .img
+        {
+            height: 100px;
+            width: 100px;
+            padding: 5px;
+        }
+        #container
+        {
+            width: auto;
+            padding: 5px;
+            margin-left: 15px;
+        }
+        #right_div
+        {
+            float: right;
+            font-size: 12px;
+            width: 40%;
+        }
+        #add , #cancel
+        {
+            width: 100px;
+            height: 25px;
+            font-size: 15px;
+            background-image: none;
+            background-color: red;
+            color: aliceblue;
+            text-align: center;
+            padding: none;
+        }
+        #shop
+        {
+            width: 500px;
+    }
+            

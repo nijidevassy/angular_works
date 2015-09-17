@@ -1,0 +1,96 @@
+/*global $ */
+var current = 0, i = 0, totalCost = 0, images =  [ "assets/jacket.jpg", "assets/jacket1.jpg", "assets/bag.jpg", "assets/bag1.jpg", "assets/footware.jpg", "assets/footware1.jpg", "assets/camera.jpg", "assets/sunglasses.jpg", "assets/laptop.jpg" ], itemNames = [ "Mens Jacket", "Ladies Jacket", "Travel Bag Backpack", "Travel Bag", "Mens Shoe", "Ladies Shoe", "Canon SLR", " FastTrack Sunglasses", "Acer Laptop" ], itemPrices = [2500, 1500, 3000, 2750, 2000, 1750, 19000, 1000, 35000], itemAvailability = [5, 5, 8, 9, 10, 10, 6, 15, 7], itemObjects = [], cart = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+
+function details(i) {
+    "use strict";
+    $("#h").html("Product Details");
+    $("#n").html("NAME: " + itemObjects[i].name);
+    $("#p").html("PRICE: " + itemObjects[i].price);
+    $("#a").html("AVAILABILITY: " + itemObjects[i].availability);
+    current = i;
+    $("#t").html("TOTAL COST: " + totalCost);
+}
+
+function productBase(name, price) {
+    "use strict";
+    this.name = name;
+    this.price = price;
+}
+function Prod(name, price, availability, image) {
+    "use strict";
+    this.availability = availability;
+    this.image = image;
+    productBase.call(this, name, price);
+}
+Prod.prototype.addCart = function () {
+    "use strict";
+    var count = itemObjects[current].availability;
+    if (count > 0) {
+        count = count - 1;
+        itemObjects[current].availability = count;
+        totalCost = totalCost + itemObjects[current].price;
+        cart[current] = cart[current] + 1;
+        details(current);
+    }
+};
+Prod.prototype.cancel = function () {
+    "use strict";
+    var countCancel = itemObjects[current].availability;
+    if (cart[current] > 0) {
+        countCancel = countCancel + 1;
+        itemObjects[current].availability = countCancel;
+        cart[current] = cart[current] - 1;
+        totalCost = totalCost - itemObjects[current].price;
+        details(current);
+    }
+};
+         
+//Prod.prototype = Object.create(productBase.prototype);
+//Prod.prototype.contructor=Prod;
+                
+for (i = 0; i < 9; i += 1) {    itemObjects[i] = new Prod(itemNames[i], itemPrices[i], itemAvailability[i], images[i]);
+                           }
+
+function init() {
+    "use strict";
+    for (i = 0; i < 9; i += 1) {
+        var division = $("<div></div>"), elem = $("<img>");
+        division.attr("id",i);
+        $("#container").append(division);
+        
+        $(elem).attr({src:images[i], alt:"www.image.com", id:i}).addClass("img");      
+        $("#"+i).append(elem);
+       
+    }
+}
+                                                  
+$(document).ready(function () {
+    "use strict";
+   /* $("#container").mouseenter(function () {
+        $("img").mouseenter(function (t) {
+            var ele = t.currentTarget.id;
+            $("#" + ele).css("opacity", ".5");
+        });
+        $("img").mouseout(function (e) {
+            var ele = e.currentTarget.id;
+            $("#" + ele).css("opacity", "1");
+        });*/
+    $("#container").mouseenter(function () {
+        $(".img").bind("click", function (e) {
+            details(e.currentTarget.id);
+        });
+    });
+    });
+/*
+    $("#add , #cancel").mouseenter(function () {
+        $(this).css("background-color", "#990000");
+    });
+    $("#add , #cancel").mouseout(function () {
+        $(this).css("background-color", "#FF3333");
+    });
+});
+   */ 
+$("#add").click( itemObjects[current].addCart);
+$("#cancel").click( itemObjects[current].cancel);
+        
